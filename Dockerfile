@@ -1,7 +1,7 @@
 FROM node:20.11.1-alpine
 
 ARG WORKDIR
-# ARG CONTAINER_PORT
+ARG API_URL
 
 # LANG=C.UTF-8 ... コンピュータ用の英語(not en-US)を、文字コードUTF-8で利用する
 # HOST-0.0.0.0 ... Nuxt.jsのデフォルトでは外部(ホストPCのブラウザ)からアクセスができない。0.0.0.0を指定して初めてアクセス可能になる
@@ -9,7 +9,8 @@ ARG WORKDIR
 ENV HOME=/${WORKDIR} \
     LANG=C.UTF-8 \
     TZ=Asia/Tokyo \
-    HOST=0.0.0.0
+    HOST=0.0.0.0 \
+    API_URL=${API_URL}
 
 WORKDIR ${HOME}
 
